@@ -1,0 +1,1029 @@
+{%extends 'calc/base.html'%}
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock css%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Descriptive Statistics Calculator | Free Calculator to find Descriptive Statistics</title>
+<meta name="description"
+    content="Capacitance Calculator makes it easy for you to determine the value of capacitance, area, and distance with steps." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta property="og:description" content="Angular Resolution Calculator" />
+<meta content="" property="og:site_name" />
+<meta content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg"
+    property="og:image" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta name="twitter:description"
+    content="Angular Resolution Calculator makes it easy for you to determine the theoretical yield value of the chemical reaction in fraction of seconds with steps." />
+<meta name="twitter:image:src"
+    content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg" />
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+<meta property='og:title' content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta property='og:image'
+    content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg" />
+<meta property='og:description' content="Angular Resolution Calculator." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock meta %}
+
+{% block content %}
+{% if x %}
+<script>
+    $(document).ready(function () {
+
+        $("#hassle").click();
+    });
+
+
+</script>
+
+<button type="button" hidden id="hassle" onclick="location.href='#descriptive_statistics'">ans1</button>
+{% endif %}
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="h1">Descriptive Statistics Calculator</h1>
+        </div>
+        <div class="card-body">
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <p {% if message.tags %} id="message_container" class="alert alert-danger text-center" {% endif %}
+                    style="color:red">{{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="{% url 'descriptive_statistics' %}" method="POST" id="my_form">
+                {% csrf_token %}
+                 <div class="input-group mb-3">
+                <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Choose Option</span>
+        </div>
+            <select id="Given" name="Given"  style="margin-top: 5px;width:100%" class="select form-control" id="inlineFormInputGroup" onchange="this.form.submit()">
+          
+            {% if Given == "form1" %}
+            <option value="form1" selected="selected">Find Minimum</option>  
+            {% else %}
+            <option value="form1" >Find Minimum</option>  
+            {% endif %}
+
+            {% if Given == "form2" %}
+            <option value="form2" selected="selected">Find Maximum</option>  
+            {% else %}
+            <option value="form2" >Find Maximum</option>  
+            {% endif %}
+            
+            {% if Given == "form3" %}
+            <option value='form3' selected="selected">Find Range</option>  
+            {% else %}
+            <option value="form3" >Find Range</option>  
+            {% endif %}            
+
+            {% if Given == "form4" %}
+            <option value='form4' selected="selected">Find Sum</option>  
+            {% else %}
+            <option value="form4" >Find Sum</option>  
+            {% endif %}  
+
+            {% if Given == "form5" %}
+            <option value='form5' selected="selected">Find Size or count</option>  
+            {% else %}
+            <option value="form5" >Find Size or count</option>  
+            {% endif %} 
+
+            {% if Given == "form6" %}
+            <option value='form6' selected="selected">Find Mean</option>  
+            {% else %}
+            <option value="form6" >Find Mean</option>  
+            {% endif %}  
+
+
+            {% if Given == "form7" %}
+            <option value='form7' selected="selected">Find Median</option>  
+            {% else %}
+            <option value="form7" >Find Median</option>  
+            {% endif %} 
+
+            {% if Given == "form8" %}
+            <option value='form8' selected="selected">Find Mode</option>  
+            {% else %}
+            <option value="form8" >Find Mode</option>  
+            {% endif %} 
+
+            {% if Given == "form9" %}
+            <option value='form9' selected="selected">Find Standard Deviation</option>  
+            {% else %}
+            <option value="form9" >Find Standard Deviation</option>  
+            {% endif %} 
+
+            {% if Given == "form10" %}
+            <option value='form10' selected="selected">Find Variance</option>  
+            {% else %}
+            <option value="form10" >Find Variance</option>  
+            {% endif %} 
+
+            {% if Given == "form11" %}
+            <option value='form11' selected="selected">Find Relative Standard Deviation</option>  
+            {% else %}
+            <option value="form11" >Find Relative Standard Deviation</option>  
+            {% endif %}  
+
+            {% if Given == "form12" %}
+            <option value='form12' selected="selected">Find Mid Range</option>  
+            {% else %}
+            <option value="form12" >Find Mid Range</option>  
+            {% endif %}  
+
+            {% if Given == "form13" %}
+            <option value='form13' selected="selected">Find Quartiles</option>  
+            {% else %}
+            <option value="form13" >Find Quartiles</option>  
+            {% endif %} 
+
+            {% if Given == "form14" %}
+            <option value='form14' selected="selected">Find  Interquartile Range</option>  
+            {% else %}
+            <option value="form14" >Find  Interquartile Range</option>  
+            {% endif %}  
+
+            {% if Given == "form15" %}
+            <option value='form15' selected="selected">Find Outliers</option>  
+            {% else %}
+            <option value="form15" >Find Outliers</option>  
+            {% endif %}   
+
+            {% if Given == "form16" %}
+            <option value='form16' selected="selected">Find Sum of Square</option>  
+            {% else %}
+            <option value="form16" >Find Sum of Square</option>  
+            {% endif %}  
+
+            {% if Given == "form17" %}
+            <option value='form17' selected="selected">Find Mean Absolute Deviation</option>  
+            {% else %}
+            <option value="form17" >Find Mean Absolute Deviation</option>  
+            {% endif %}  
+
+            {% if Given == "form18" %}
+            <option value='form18' selected="selected">Find Root Mean Square</option>  
+            {% else %}
+            <option value="form18" >Find Root Mean Square</option>  
+            {% endif %}
+
+            {% if Given == "form19" %}
+            <option value='form19' selected="selected">Find Standard Error of the Mean</option>  
+            {% else %}
+            <option value="form19" >Find Standard Error of the Mean</option>  
+            {% endif %}
+
+            {% if Given == "form20" %}
+            <option value='form20' selected="selected">Find Skewness</option>  
+            {% else %}
+            <option value="form20" >Find Skewness</option>  
+            {% endif %}
+
+            {% if Given == "form21" %}
+            <option value='form21' selected="selected">Find Kurtosis</option>  
+            {% else %}
+            <option value="form21" >Find Kurtosis</option>  
+            {% endif %}
+
+            {% if Given == "form22" %}
+            <option value='form22' selected="selected">Find Kurtosis Excess</option>  
+            {% else %}
+            <option value="form22" >Find Kurtosis Excess</option>  
+            {% endif %}
+
+            {% if Given == "form23" %}
+            <option value='form23' selected="selected">Find Coefficient of Variation</option>  
+            {% else %}
+            <option value="form23" >Find Coefficient of Variation</option>  
+            {% endif %}
+
+          </select>  
+                      
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">x Values (separated by space)</span>
+            </div>
+            
+           <input style="margin-top: 5px;width:100%" id="x" name="x" value="{{x}}"   required="" o class="form-control" type="text" required width="48"> 
+       </div>
+       
+        <div class=" center col mt-2 ">
+            <center><button type="submit" class="btn btn-primary">Calculate</button>
+              <a href="{% url 'descriptive_statistics' %}" class="btn btn-warning" role="button" style="margin-top:5px;">Reset</a>      
+            </center>
+          </div>
+    
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container" style="height: auto !important;">
+{% if Given == "form1" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Minimum :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Minimum:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Minimum = Order the data set from lowest to highest i.e x1 ≤ x2 ≤ x3 ≤ x4 ≤ . . . xn. First value is minimum</p>
+            <br>
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Order the data set from lowest to highest</b></p>
+            <p>{{s}}</p>
+
+            <p>Minimum = {{result}}</p>
+ 
+   </div>
+    </div>
+    {% endif %} 
+{% if Given == "form2" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Maximun :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Maximum:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Maximum = Order the data set from lowest to highest i.e x1 ≤ x2 ≤ x3 ≤ x4 ≤ . . . xn. Last value is maximum</p>
+            <br>
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Order the data set from lowest to highest</b></p>
+            <p>{{s}}</p>
+
+            <p>Maximum = {{result}}</p>
+ 
+   </div>
+    </div>
+    {% endif %}  
+
+{% if Given == "form3" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Range :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Range:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Range = Max(x) - Min(x)</p>
+            <br>
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put value in formula</b></p>
+            <p>Range = {{max}} - {{min}}</p>
+            <p>Range = {{result}}</p>
+ 
+   </div>
+    </div>
+    {% endif %} 
+
+{% if Given == "form4" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Sum :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Sum:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Sum is the total of all data items in the data set</p>
+            <br>
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p>Sum = {{result}}</p>
+ 
+   </div>
+    </div>
+    {% endif %}
+
+{% if Given == "form5" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Size/count :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Sum:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Size/Count = Total numbers of elements</p>
+            <br>
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p>Size/Count = {{result}}</p>
+ 
+   </div>
+    </div>
+    {% endif %} 
+
+{% if Given == "form6" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Mean :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Mean Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Mean = S / N</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>S is the sum elements of x,</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Mean μ= Sum of Elements / Number's of Element</p>
+            <p>Mean μ= {{xsum}} / {{n}} </p>
+            <b>Mean μ = {{result}}</b>       
+   </div>
+    </div>
+    {% endif %}
+
+
+{% if Given == "form7" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Median :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Median:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Median = If n is Odd [p = (n + 1) / 2, xmedian = xp] <br> If n is Even [p = n/2, x<sub>median</sub> = ( x<sub>p</sub> + x<sub>p+1</sub>) / 2]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>n is the number of elements,</li>
+                        <li>p is the position,</li>
+                        <li>x<sub>p</sub> element in the position of x<sub>position</sub>,</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            {% if k %}
+            <p>p = {{n}} / 2</p>
+            <p>p = {{p}}</p>
+            <p>Median = ({{median1}} + {{median2}}) / 2 </p>
+            {% else %}
+            <p>p = ({{n}}+1) / 2</p>
+            <p>p = {{p}}</p>
+            {% endif %}
+
+            <b>Median  = {{result}}</b>       
+   </div>
+    </div>
+
+    {% endif %}  
+
+    {% if Given == "form8" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Mode :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Mode:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Mode = Mode is the values that occur most frequently in the data set. A data set can have more than one mode or no mode.</p>
+            <br>
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <b>Mode = {{result}}</b>       
+
+   </div>
+    </div>
+    {% endif %} 
+
+    {% if Given == "form9" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Standard Deviation:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Standard Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Standard Deviation s = √[(∑i (xi - μ)²) / n-1]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑ is sum,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Standard Deviation = √[(∑i (xi - μ)²) / n-1]</p>
+            <p>Standard Deviation = √ {{ss}} / ({{n}}-1)</p>
+
+            {% if output %}
+                <b>Standard Deviation = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Standard Deviation = {{result}}</b>       
+            {% endif %}
+            
+   </div>
+    </div>
+    {% endif %}
+     {% if Given == "form10" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Variance:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Variance:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Variance s² = [(∑i (xi - xmean)²) / (n - 1)]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑ is sum,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Variance = [(∑i(xi - μ)²) / n-1]</p>
+            <p>Variance =  {{ss}} / ({{n}}-1)</p>
+
+            {% if output %}
+                <b>Variance = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Variance = {{result}}</b>       
+            {% endif %}
+            
+   </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form11" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Relative Standard Deviation:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Relative Standard Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Relative Standard Deviation s = (Standard deviation * 100) / mean</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑ is sum,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Relative Standard Deviation = {{sd}} * 100 / {{mean}}</p>
+
+            {% if output %}
+                <b>Relative Standard Deviation = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Relative Standard Deviation = {{result}}</b>       
+            {% endif %}
+            
+   </div>
+    </div>
+    {% endif %}
+
+{% if Given == "form12" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Mid range :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Mid range:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Mid range = (x<sub>max</sub>+x<sub>min</sub>)/2</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>x<sub>min</sub> is the min of elements,</li>
+                        <li>x<sub>max</sub> is the max of elements.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Mid Range = ({{xmin}} + {{xmax}) / 2 </p>
+            <b>Mid Range = {{result}}</b>       
+   </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form13" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Quartiles :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Quartiles:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Quartiles Q1 = (n+1)/2 <br> Q2 = Median <br> Q3 = 3 * (n+1) / 2</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>Median is the second quartile Q2,</li>
+                        <li>Q1 is lower quartile,</li>
+                        <li>Q3 is higher quartile.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+
+            
+            <b>Quartiles Q1 = {{q1}} </b><br>
+            <b>Quartiles Q2 = {{q2}}</b><br>       
+            <b>Quartiles Q3 = {{q3}}</b>       
+   </div>
+    </div>
+    {% endif %}
+
+
+{% if Given == "form14" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Interquartile Range :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Interquartile Range:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Interquartile Range IQR = Q3 - Q1</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>Q1 is lower quartile,</li>
+                        <li>Q3 is higher quartile.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            <p>Interquartile Range IQR = {{q3}} - {{q1}} </p>
+            <b>Interquartile Range IQR = {{result}} </b>
+               
+   </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form15" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Outliers:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Outliers:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Upper Fence = Q3 + 1.5 x IQR<br>Lower Fence = Q1 - 1.5 x IQR</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>Q1 is lower quartile,</li>
+                        <li>Q3 is higher quartile.</li>
+                        <li>IQR is a Interquartile Range</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            <p>Upper Fence = {{q3}} + 1.5 x {{iqr}} </p>
+            <b>Upper Fence = {{uf}}</b>
+            <p>Lower Fence = {{q1}} - 1.5 x {{iqr}}</p>
+            <b>Lower Fence = {{lf}}</b>
+               
+   </div>
+    </div>
+    {% endif %}
+
+
+ {% if Given == "form16" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Sum of Squares:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Sum of Squares:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Sum of Squares s = ∑i(xi - μ)²</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑i is sum of each element,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Sum of Squares = ∑i(xi - μ)²</p>
+            <p>Sum of Squares = ∑i ({{x}} - {{mean}})²</p>
+
+            {% if output %}
+                <b>Sum of Squares = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Sum of Squares = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+
+    {% if Given == "form17" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Mean Absolute Deviation:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Mean Absolute Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Mean Absolute Deviation MAD = (∑i |xi - μ|) / n</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑i is sum of each element,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Mean Absolute Deviation = (∑i |xi - μ|) / n</p>
+            <p>Mean Absolute Deviation = ({{ss}} / {{n}})</p>
+
+            {% if output %}
+                <b>Mean Absolute Deviation = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Mean Absolute Deviation = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+            
+
+{% if Given == "form18" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Root Mean Square:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Root Mean Square:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Root Mean Square RMS = √[(∑i(xi)²) / n ]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>∑i is sum of each element,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Root Mean Square =  √[(∑i(xi)²) / n ]</p>
+            <p>Root Mean Square =  √ ({{ss}}/{{n}}) </p>
+
+            {% if output %}
+                <b>Root Mean Square = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Root Mean Square = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form19" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Standard Error of the Mean:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Standard Error of the Mean:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Standard Error of the Mean = (σ / (√n))</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>σ is a Standard Deviation.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Standard Error of the Mean =  (σ / (√n))</p>
+            <p>Standard Error of the Mean =  {{sd}} / (√{{n}}) </p>
+
+            {% if output %}
+                <b>Standard Error of the Mean = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Standard Error of the Mean = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form20" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Skewness:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Skewness:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Skewness =  [(n) / ((n - 1) (n - 2)] * [∑i((xi - xmean) / s)<sup>3</sup>]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>s is a Standard Deviation,</li>
+                        <li>xi is a each element.</li>
+                        <li>xmean is a mean of x.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Skewness =  [(n) / ((n - 1) (n - 2)] * [∑i((xi - xmean) / s)<sup>3</sup>]</p>
+            <p>Skewness =  {{z1}} * {{s3}}</p>
+
+            {% if output %}
+                <b>Skewness = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Skewness = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+    {% if Given == "form21" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Kurtosis:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Kurtosis:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Kurtosis = [(n (n +1)) / ((n - 1) (n - 2) (n - 3)] [∑i = 1n ((xi - xmean)<sup>4</sup> / s)]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>s is a Standard Deviation,</li>
+                        <li>xi is a each element.</li>
+                        <li>xmean is a mean of x.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Kurtosis =  [(n (n +1)) / ((n - 1) (n - 2) (n - 3)] [∑i = 1n ((xi - xmean)<sup>4</sup> / s)]</p>
+            <p>Kurtosis =  {{z1}} * {{s3}} </p>
+
+            {% if output %}
+                <b>Kurtosis = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Kurtosis = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form22" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Kurtosis Excess:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Kurtosis Excess:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Kurtosis Excess = [(n (n + 1)) / ((n - 1)(n - 2)(n - 3)] [∑i = 1n((xi - xmean) / s)<sup>4</sup>] - [(3(n-1)²) / ((n - 2) (n - 3))]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>s is a Standard Deviation,</li>
+                        <li>xi is a each element.</li>
+                        <li>xmean is a mean of x.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Kurtosis Excess =  [(n (n + 1)) / ((n - 1)(n - 2)(n - 3)] [∑i = 1n((xi - xmean) / s)<sup>4</sup>] - [(3(n-1)²) / ((n - 2) (n - 3))]</p>
+            <p>Kurtosis Excess =  {{z1}} * {{s3}} - {{z2}} </p>
+
+            {% if output %}
+                <b>Kurtosis Excess = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Kurtosis Excess = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+    {% if Given == "form23" and x %}
+<div class="card c1" id="descriptive_statistics">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Coefficient of Variation:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Coefficient of Variation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Coefficient of Variation = s / xmean</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>s is a Standard Deviation,</li>
+                        <li>xi is a each element.</li>
+                        <li>xmean is a mean of x.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Coefficient of Variation =  s / xmean</p>
+            <p>Coefficient of Variation =  {{sd}} / {{mean}} </p>
+
+            {% if output %}
+                <b>Coefficient of Variation = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Coefficient of Variation = {{result}}</b>       
+            {% endif %}
+
+     </div>
+    </div>
+    {% endif %}
+
+</div>               
+{% endblock content %}

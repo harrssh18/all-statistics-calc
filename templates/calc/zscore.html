@@ -1,0 +1,276 @@
+{%extends 'calc/base.html'%}
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock css%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>zscore Calculator | Free Calculator to find zscore</title>
+<meta name="description"
+    content="Capacitance Calculator makes it easy for you to determine the value of capacitance, area, and distance with steps." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta property="og:description" content="Angular Resolution Calculator" />
+<meta content="" property="og:site_name" />
+<meta content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg"
+    property="og:image" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta name="twitter:description"
+    content="Angular Resolution Calculator makes it easy for you to determine the theoretical yield value of the chemical reaction in fraction of seconds with steps." />
+<meta name="twitter:image:src"
+    content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg" />
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+<meta property='og:title' content="Angular Resolution Calculator | Free Calculator to find Angular Resolution" />
+<meta property='og:image'
+    content="https://onlinecalculator.guru/static/images/Chemistry/Theoratical-Yield-Calculator.jpeg" />
+<meta property='og:description' content="Angular Resolution Calculator." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock meta %}
+
+{% block content %}
+{% if x%}
+<script>
+    $(document).ready(function () {
+
+        $("#hassle").click();
+
+
+    });
+
+
+</script>
+
+<button type="button" hidden id="hassle" onclick="location.href='#zscore'">ans1</button>
+{% endif %}
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="h1">zscore Calculator</h1>
+        </div>
+        <div class="card-body">
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <p {% if message.tags %} id="message_container" class="alert alert-danger text-center" {% endif %}
+                    style="color:red">{{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="{% url 'zscore' %}" method="POST" id="my_form">
+                {% csrf_token %}
+                 <div class="input-group mb-3">
+                <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Choose Option</span>
+        </div>
+            <select id="Given" name="Given"  style="margin-top: 5px;width:100%" class="select form-control" id="inlineFormInputGroup" onchange="this.form.submit()">
+          
+            {% if Given == "form1" %}
+            <option value="form1" selected="selected">Find zscore</option>  
+            {% else %}
+            <option value="form1" >Find zscore</option>
+            {% endif %}
+
+            {% if Given == "form2" %}
+            <option value="form2" selected="selected">Find standard Deviation</option>  
+            {% else %}
+            <option value="form2" >Find Standard Deviation</option>  
+            {% endif %}
+
+            {% if Given == "form3" %}
+            <option value="form3" selected="selected">Find mean</option>  
+            {% else %}
+            <option value="form3" >Find mean</option>
+            {% endif %}
+    </select>
+</div>
+            
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">x Values (separated by space)</span>
+            </div>
+            
+           <input style="margin-top: 5px;width:100%" id="x" name="x" value="{{x}}"   required="" o class="form-control" type="text" required width="48"> 
+       </div>
+       {% if Given == 'form1' %}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Population Mean μ</span>
+            </div>
+            
+           <input style="margin-top: 5px;width:100%" id="m" name="m" value="{{m}}"  required="" o class="form-control" type="number" step="any" required width="48"> 
+       </div>
+       <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Population Std Dev σ</span>
+            </div>
+            
+            
+           <input style="margin-top: 5px;width:100%" id="sd" name="sd" value="{{sd}}"  required="" o class="form-control" type="number" step="any" required width="48"> 
+       </div>
+{% endif %}
+       
+        <div class=" center col mt-2 ">
+            <center><button type="submit" class="btn btn-primary">Calculate</button>
+              <a href="{% url 'zscore' %}" class="btn btn-warning" role="button" style="margin-top:5px;">Reset</a>      
+            </center>
+          </div>
+    
+</div>
+
+</form>
+</div>
+</div>
+<div class="container" style="height: auto !important;">
+{% if Given == "form2" and x %}
+<div class="card c1" id="zscore">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Standard Deviation:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Standard Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Standard Deviation s = √[(∑i (xi - μ)²) / n-1]</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>μ is the Mean,</li>
+                        <li>∑ is sum,</li>
+                        <li>xi is a each element.</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Standard Deviation = √[(∑i (xi - μ)²) / n-1]</p>
+            <p>Standard Deviation = √ {{ss}} / ({{n}}-1)</p>
+
+            {% if output %}
+                <b>Standard Deviation = {{start}} x 10<sup>{{end}}</sup></b>
+            {% else %}
+                <b>Standard Deviation = {{result}}</b>       
+            {% endif %}
+            
+   </div>
+    </div>
+    {% endif %}
+
+
+   {% if Given == "form3" and x %}
+<div class="card c1" id="zscore">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Mean :</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Mean Deviation:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Mean = S / N</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>N is the number of elements,</li>
+                        <li>S is the sum elements of x,</li>
+                    </ul>
+
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            
+            <p><b>Put values into formula</b></p>
+            
+            <p>Mean μ= Sum of Elements / Number's of Element</p>
+            <p>Mean μ= {{xsum}} / {{n}} </p>
+            <b>Mean μ = {{result}}</b>       
+   </div>
+    </div>
+    {% endif %}
+    
+{% if Given == "form1" and x and sd and m %}
+<div class="card c1" id="zscore">
+        <div class="card-header">
+            <h2 class="h2">Steps to Find Z-Score:</h2>
+        </div>
+
+        <div class="card-body">
+
+            <strong>Z-Score:-</strong>
+            <br>
+            <p class="btn btn-outline-secondary active text-justify">Z-Score if x is one value z = (x-μ)/σ<br>if x more than one value z = ((x-μ)*√n)/σ</p>
+            <br>
+            <strong>where:</strong>
+                    <ul>
+                        <li>μ is the mean of x,</li>
+                        <li>n is the number of element of x,</li>
+                        <li>σ is the standard deviation of x,</li>
+                        <li>x is a dataset.</li>
+                    </ul>
+
+            <strong>Input values are:-</strong>
+            <p>x = {{x}} </p>
+            <p>μ = {{m}} </p>
+            <p>σ = {{sd}} </p>
+            
+            <br>
+            <p><b>Put values into formula</b></p>
+            
+            {% if k %}
+            <p>Z-Score = ((x-μ)*√n)/σ</p>
+            <p>Z-Score = (({{xm}}- {{m}}) * √{{n}}) / {{sd}}</p>
+            <b>Z-Score = {{z}}</b>
+            {% else %}
+            <p>Z-Score = (x-μ)/σ</p>
+            <p>Z-Score = ({{xm}}-{{m}}) / {{sd}}</p>
+            <b>Z-Score = {{z}}</b>
+            {% endif %}
+            
+            
+            
+                       
+   </div>
+    </div>
+    {% endif %}  
+    </div>              
+{% endblock content %}
